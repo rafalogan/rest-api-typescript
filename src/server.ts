@@ -1,4 +1,6 @@
-const a: number = 15;
-const b = 10;
+import * as http from 'http';
 
-console.log(`Soma: ${a+b}`);
+const server = http.createServer();
+
+server.listen(9000,
+	() => console.log('Server Online http://localhost:9000'));

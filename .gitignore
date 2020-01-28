@@ -7,4 +7,8 @@
 
 # folders
 \dist
+\build
 data/data-base
+
+# Modules
+node_modules

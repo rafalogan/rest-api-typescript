@@ -1,0 +1,44 @@
+{
+  "name": "rest-api-typescript",
+  "version": "1.0.0",
+  "description": "Api Rest em typeScript com base no curso https://github.com/raphaellima8/typescript-course",
+  "main": "server.ts",
+  "scripts": {
+    "start": "nodemon src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafalogan/rest-api-typescript.git"
+  },
+  "keywords": [
+    "API",
+    "TypeScript",
+    "NodeJS",
+    "ES6"
+  ],
+  "author": "RafaDraw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rafalogan/rest-api-typescript/issues"
+  },
+  "homepage": "https://github.com/rafalogan/rest-api-typescript#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "http": "0.0.0",
+    "knex": "^0.20.8",
+    "morgan": "^1.9.1",
+    "pg": "^7.17.1"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.17.1",
+    "@types/express": "^4.17.2",
+    "@types/morgan": "^1.7.37",
+    "nodemon": "^2.0.2",
+    "sucrase": "^3.12.1",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  }
+}

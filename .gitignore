@@ -1,0 +1,10 @@
+# idea's
+\.idea
+\.vscode
+
+# files
+.DS_Store
+
+# folders
+\dist
+data/data-base

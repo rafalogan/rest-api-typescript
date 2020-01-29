@@ -1,6 +1,10 @@
 import * as http from 'http';
 
-const server = http.createServer();
+import App from './api/app-api';
 
-server.listen(9000,
-	() => console.log('Server Online http://localhost:9000'));
+const config = require('./config/config')();
+const server = http.createServer(App);
+
+server.listen(config.serverPort);
+server.on('listening', () => console.log('Servdor online', config.baseUrl));
+server.on('error', (err: NodeJS.ErrnoException) => console.log('Ocorreu um erro', err));

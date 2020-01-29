@@ -7,6 +7,6 @@ module.exports = {
 	host: 'localhost',
 	serverPort: process.env.SERVER_PORT || 9000,
 	dbPort: process.env.DB_PORT || 5432,
-	dbUrl: `${this.dialect}://${this.dialect}:${this.username}@localhost:${this.dbPort}/${this.db}`,
-	authSecret: process.env.AUTH_SECRET || `#@${this.host}$$${this.serverPort}//${this.dbPort}@#`
+	dbUrl: `postgres://postgres:${process.env.DB_USER}@localhost:${process.env.DB_PORT}/${process.env.DB_NAME}`,
+	authSecret: process.env.AUTH_SECRET || '#@$AloyR@f@elLEt!c!@#'
 };

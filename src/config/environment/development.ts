@@ -9,5 +9,5 @@ module.exports = {
 	baseUrl: `http://${process.env.SERVER_HOST}:${process.env.SERVER_PORT}`,
 	dbPort: process.env.DB_PORT,
 	dbUrl: `postgres//postgres:${process.env.DB_USER}@localhost:${process.env.DB_PORT}/${process.env.DB_NAME}`,
-	authSecret: process.env.AUTH_SECRET || `#@${this.host}$$${this.serverPort}//${this.dbPort}@#`
+	authSecret: process.env.AUTH_SECRET || `#@$AloyR@f@elLEt!c!@#`
 };

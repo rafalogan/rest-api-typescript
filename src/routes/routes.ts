@@ -17,7 +17,8 @@ class Routes {
 			.get(this.user.index).post(this.user.create);
 
 		app.route('/users/:id')
-			.get(this.user.findOne).put(this.user.update).delete(this.user.destroy);
+			.get(this.user.findOne).put(this.user.update)
+			.delete(this.user.destroy);
 	}
 }
 

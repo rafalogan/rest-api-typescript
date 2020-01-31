@@ -5,6 +5,7 @@ import * as bodyParser from 'body-parser';
 
 import Routes from '../routes/routes';
 import {errrorHandlerApi} from './error-hendler-api';
+import Db from '../config/db/db';
 
 class App {
 
@@ -19,11 +20,16 @@ class App {
 		this.express.use(morgan('dev'));
 		this.express.use(bodyParser.urlencoded({extended: true}));
 		this.express.use(errrorHandlerApi);
+		this.db(this.express);
 		this.router(this.express);
 	}
 
 	private router(app: Application) {
 		new Routes(app);
+	}
+
+	private db(app: Application) {
+		new Db(app);
 	}
 }
 

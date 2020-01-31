@@ -1,6 +1,6 @@
-import * as dotenv from 'dotenv';
+if (!process.env.NODE_ENV) require('dotenv').config();
 
-if(!process.env.NODE_ENV) dotenv.config();
+const environment = process.env.NODE_ENV || 'development';
 
-module.exports = () => require(`./environment/${process.env.NODE_ENV}`);
+module.exports = () => require(`./environment/${environment}`);
 

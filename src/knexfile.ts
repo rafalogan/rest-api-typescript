@@ -1,22 +1,22 @@
 // Update with your config settings.
-import 'ts-node/register';
+require('ts-node/register');
 
-const config = require('./config/config')();
+const configDB = require('./config/config')();
 
 module.exports = {
-	client: 'postgresql',
+	client: 'pg',
 	connection: {
-		database: config.db,
-		user: config.username,
-		password: config.password
+		database: configDB.db,
+		user: configDB.username,
+		password: configDB.password
 	},
 	pool: {
 		min: 2,
 		max: 10
 	},
 	migrations: {
-		directory: 'migrations',
-		tableName: 'knex_migrations'
+		tableName: 'knex_migrations',
+		directory: 'src/migrations'
 	},
 	timezone: 'America/Sao_Paulo'
 };

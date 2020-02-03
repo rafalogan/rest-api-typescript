@@ -20,7 +20,7 @@ class App {
 		this.express.use(morgan('dev'));
 		this.express.use(bodyParser.urlencoded({extended: true}));
 		this.express.use(errrorHandlerApi);
-		this.db(this.express);
+		this.db();
 		this.router(this.express);
 	}
 
@@ -28,8 +28,8 @@ class App {
 		new Routes(app);
 	}
 
-	private db(app: Application) {
-		new Db(app);
+	private db() {
+		 Db.getMigrateLatest();
 	}
 }
 

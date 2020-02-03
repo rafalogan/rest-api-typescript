@@ -2,13 +2,11 @@ import { Request, Response } from 'express';
 
 import UserController from './user-controller';
 
-let UserCtlr: UserController;
+const UserCtlr: UserController = new UserController();
 
 class UserRoutes {
 
-
 	constructor() {
-		UserCtlr = new UserController();
 	}
 
 	index(req: Request, res: Response) {

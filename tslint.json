@@ -14,7 +14,8 @@
 		"forin": true,
 		"indent": [
 			true,
-			"spaces"
+			"tabs",
+			2
 		],
 		"label-position": true,
 		"label-undefined": true,
@@ -42,6 +43,7 @@
 		"no-use-before-declare": true,
 		"no-var-keyword": true,
 		"object-literal-sort-keys": false,
+		"no-console": false,
 		"one-line": [
 			true,
 			"check-open-brace",
@@ -53,7 +55,7 @@
 			true,
 			"single"
 		],
-		"radix": true,
+		"radix": false,
 		"semicolon": [
 			"always"
 		],

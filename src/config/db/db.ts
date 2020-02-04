@@ -1,6 +1,5 @@
 import Knex from 'knex';
 import {Config, MigratorConfig} from 'knex';
-import {Application} from 'express';
 
 const knexFile:	MigratorConfig = require('../../knexfile');
 
@@ -33,7 +32,7 @@ class Db {
 
 	async getAll(table: string,
 				 values: string[] = [],
-				 limit = this.limitDefault, page: number = 1): Promise<any> {
+				 limit = this.limitDefault, page = 1): Promise<any> {
 		const result: any = await this.instance(table).count({ count: 'id'}).first();
 		const count: number  = parseInt(result.count);
 
@@ -46,7 +45,9 @@ class Db {
 	}
 
 	async getById(table: string, id: number, values: string[]): Promise<any> {
-
+		this.instance(table)
+			.select(...values)
+			.where({id})
 	}
 
 }

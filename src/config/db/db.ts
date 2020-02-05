@@ -2,6 +2,7 @@ import Knex from 'knex';
 import {Config, MigratorConfig} from 'knex';
 
 const knexFile: MigratorConfig = require('../../knexfile');
+knexFile.directory = 'src/migrations';
 
 class Db {
 	instance: Knex;

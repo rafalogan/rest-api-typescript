@@ -16,7 +16,7 @@ module.exports = {
 	},
 	migrations: {
 		tableName: 'knex_migrations',
-		directory: 'src/migrations'
+		directory: 'migrations'
 	},
 	timezone: 'America/Sao_Paulo'
 };

@@ -42,6 +42,7 @@
 		"no-unreachable": true,
 		"no-use-before-declare": true,
 		"no-var-keyword": true,
+		"no-var-requires": false,
 		"object-literal-sort-keys": false,
 		"no-console": false,
 		"one-line": [

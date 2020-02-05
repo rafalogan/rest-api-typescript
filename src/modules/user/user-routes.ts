@@ -6,11 +6,10 @@ const UserCtlr: UserController = new UserController();
 
 class UserRoutes {
 
-	constructor() {
-	}
+	constructor() {}
 
 	index(req: Request, res: Response) {
-		return UserCtlr.getAll(req, res);
+		return UserCtlr.getAllUsers(req, res);
 	}
 
 	create(req: Request, res: Response) {
@@ -18,7 +17,7 @@ class UserRoutes {
 	}
 
 	findOne(req: Request, res: Response) {
-		return UserCtlr.getById(req, res);
+		return UserCtlr.getUserById(req, res);
 	}
 
 	update(req: Request, res: Response) {

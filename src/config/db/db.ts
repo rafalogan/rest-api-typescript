@@ -20,14 +20,14 @@ class Db {
 
 	async create(table: string, values: {}): Promise<any> {
 		return this.instance(table).insert(values)
-			.then(() => values)
+			.then(result => result)
 			.catch(err => console.error(`Erro ao tentar inserir itens na tabela: ${table}`, err))
 	}
 
 	async update(table: string, id: number, values: {}): Promise<any> {
 		return this.instance(table).update(values)
 			.where({id})
-			.then(() => values)
+			.then(result => result)
 			.catch(err => console.error(`Erro ao atualizar item: ${id} na tabela: ${table}`, err))
 	}
 

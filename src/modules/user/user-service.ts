@@ -25,8 +25,8 @@ class UserService implements IUser {
 
 	getByEmail(email: string): Promise<IUserDetail> {
 		return this.db.instance(this.table)
-			.select().where({email})
-			.then((user: any) => user)
+			.select().where({email}).first()
+			.then(user => user)
 			.catch(err => console.error('Registro não encontrado', err))
 	}
 

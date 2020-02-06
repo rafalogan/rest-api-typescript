@@ -1,5 +1,4 @@
 import {Request, Response} from 'express';
-import httpStatus from 'http-status';
 
 import UserService from './user-service';
 import {onSuccess} from '../../api/response/success-hendler';

@@ -31,9 +31,7 @@ class Db {
 			.catch(err => console.error(`Erro ao atualizar item: ${id} na tabela: ${table}`, err))
 	}
 
-	async getAll(table: string,
-							 values: string[] = [],
-							 limit: number, page: number): Promise<any> {
+	async getAll(table: string, values: string[] = [], limit: number, page: number): Promise<any> {
 		const count = await this.countIds(table);
 		limit = (limit) ? limit : this.limitDefault;
 		page = (page) ? page : 1;

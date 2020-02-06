@@ -1,11 +1,12 @@
 import {Request, Response} from 'express';
 import httpStatus from 'http-status';
 import jwt from 'jwt-simple'
+import bcrypt from 'bcrypt';
 
 const config = require('../../config/config')();
 
 export function authSucess(res: Response, credential: any, data: any) {
-	const isMatch = (credential.password == data.password);
+	const isMatch = bcrypt.compareSync(credential.password, data.password);
 	console.log('Credencial pass', credential.password);
 	console.log('data pass', data.password);
 	const now = Math.floor(Date.now() / 1000);

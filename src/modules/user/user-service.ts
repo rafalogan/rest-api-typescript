@@ -1,3 +1,5 @@
+import bcrypt from 'bcrypt'
+
 import {IUser, IUserDetail} from './user-interface';
 import Db from '../../config/db/db';
 
@@ -7,11 +9,17 @@ class UserService implements IUser {
 	email: string = '';
 	password: string = '';
 	table: string = 'users';
+	private salt = bcrypt.genSaltSync(10);
 
 	constructor(private db = Db) {
 	}
 
+	hashPassword(password: string) {
+		return bcrypt.hashSync(password, this.salt);
+	}
+
 	create(user: IUserDetail) {
+		user.password = this.hashPassword(user.password);
 		return  this.db.create(this.table, user)
 	}
 
@@ -31,6 +39,7 @@ class UserService implements IUser {
 	}
 
 	update(id: number, user: IUserDetail) {
+		user.password = this.hashPassword(user.password);
 		return this.db.update(this.table, id, user);
 	}
 

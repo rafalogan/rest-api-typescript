@@ -20,7 +20,7 @@ class Db {
 
 	async create(table: string, values: {}): Promise<any> {
 		return this.instance(table).insert(values)
-			.then(result => result)
+			.then((result: any) => result.rowCount)
 			.catch(err => console.error(`Erro ao tentar inserir itens na tabela: ${table}`, err))
 	}
 
@@ -54,7 +54,7 @@ class Db {
 	async remove(table: string, id: number): Promise<any> {
 		return this.instance(table)
 			.where({id}).del()
-			.then(() => true)
+			.then((result : number) => (result > 0))
 			.catch(err => console.error(`Erro ao deletar o Registro nº ${id} da tabela ${table}`, err));
 	}
 

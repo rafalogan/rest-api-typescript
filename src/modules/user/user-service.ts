@@ -11,8 +11,7 @@ class UserService implements IUser {
 	table: string = 'users';
 	private salt = bcrypt.genSaltSync(10);
 
-	constructor(private db = Db) {
-	}
+	constructor(private db = Db) {}
 
 	hashPassword(password: string) {
 		return bcrypt.hashSync(password, this.salt);
@@ -48,4 +47,4 @@ class UserService implements IUser {
 	}
 }
 
-export default UserService;
+export default new UserService();

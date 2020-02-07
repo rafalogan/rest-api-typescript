@@ -4,31 +4,29 @@ import morgan from 'morgan';
 import * as bodyParser from 'body-parser';
 
 import Routes from '../routes/routes';
-import {errrorHandlerApi} from './error-hendler-api';
 import Db from '../config/db/db';
-import AuthConfig from '../config/auth';
+import AuthConfig from '../config/auth-config';
+import Handlers from './response/handlers';
 
 class App {
 
 	public express: Application;
-	public auth;
 
 	constructor() {
 		this.express= express();
-		this.auth = AuthConfig();
 		this.middleware()
 	}
 
 	middleware(): void {
 		this.express.use(morgan('dev'));
 		this.express.use(bodyParser.json());
-		this.express.use(errrorHandlerApi);
+		this.express.use(Handlers.errrorHandlerApi);
 		this.db();
-		this.router(this.express, this.auth);
+		this.router(this.express, AuthConfig);
 	}
 
 	private router(app: Application, auth: any) {
-		new Routes(app, auth);
+		 Routes.initRoutes(app, auth);
 	}
 
 	private db() {

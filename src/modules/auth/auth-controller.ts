@@ -1,15 +1,12 @@
 import {Request, Response} from 'express';
 
 import UserService from '../user/user-service';
-import {authFaill, authSucess} from '../../api/response/auth-success';
-import {errrorHandlerApi} from '../../api/error-hendler-api';
+import Handlers from '../../api/response/handlers';
 
 class AuthController {
-	private userService: UserService;
 
-	constructor() {
-		this.userService = new UserService();
-	}
+	constructor(private userService = UserService,
+							private handlers = Handlers) {}
 
 	authentication(req: Request, res: Response)  {
 		console.log(req.body);
@@ -19,12 +16,12 @@ class AuthController {
 		};
 
 		if (credentials.email && credentials.password) this.userService.getByEmail(credentials.email)
-			.then(user => authSucess(res, credentials, user))
+			.then(user => this.handlers.authSucess(res, credentials, user))
 			.catch(error => {
 				console.error('Error A autenticação', error);
-				authFaill(req, res)
+				this.handlers.authFaill(req, res)
 			})
 	}
 }
 
-export default AuthController;
+export default new AuthController;

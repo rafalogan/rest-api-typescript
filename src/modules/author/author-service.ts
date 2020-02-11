@@ -2,15 +2,15 @@
 import Db from '../../config/db/db';
 import {IAuthor, IAuthorDetail} from './author-interface';
 
-class AuthorService implements IAuthor{
-	id: number = 0;
-	name: string = '';
+class AuthorService {
+
 	private table: string = 'author';
 
 	constructor(private db = Db) {}
 
+
 	createAuthor(author: IAuthorDetail) {
-	 return this.db.create(this.table, bodyAuthor);
+	 return this.db.create(this.table, author);
 	}
 
 	updateAuthor(id: number, author: IAuthorDetail) {

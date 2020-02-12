@@ -65,4 +65,4 @@ class Handlers {
 
 }
 
-export default new Handlers;
+export default new Handlers();

@@ -36,6 +36,7 @@ class AuthorController {
 		const id = parseInt(req.params.id);
 		const author = req.body;
 		const result = {id, ...author};
+
 		this.authorService.updateAuthor(id, author)
 			.then(author => this.handlers.onSuccess(res, (author > 0) ? result : {}))
 			.catch(err => this.handlers.onError(res, 'Erro ao atualizar autor', err))

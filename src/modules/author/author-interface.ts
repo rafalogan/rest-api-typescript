@@ -8,10 +8,10 @@ export interface IAuthorDetail extends IAuthor {
 	name: string;
 }
 
-export function createAuthors({id, name}: IAuthorDetail): IAuthor {
-	return {id, name}
+export function createAuthors(data: any[]): IAuthor[] {
+	return data.map(createAuthor)
 }
 
-export function createAuthorById({id, name}: IAuthorDetail): IAuthor {
+export function createAuthor({id, name}: IAuthorDetail): IAuthor {
 	return {id, name}
 }

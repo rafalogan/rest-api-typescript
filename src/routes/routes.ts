@@ -44,7 +44,7 @@ class Routes {
 			.get(this.posts.index)
 			.post(this.posts.createPost);
 
-		app.route('posts/:id')
+		app.route('/posts/:id')
 			.get(this.posts.findPost)
 			.put(this.posts.updatePost)
 			.delete(this.posts.destroyPost);

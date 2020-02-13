@@ -18,11 +18,26 @@ class PostService {
 	}
 
 	getAllPosts(limit: number, page: number) {
-		return this.db.getAll(this.table, [], limit, page);
+		return this.db.getAll(this.table, [], limit, page)
+			.then(posts => {
+				posts.data = this.setPostsText(posts.data);
+				return posts
+			}).catch( err => this.handlers.dbErrorHandler('Posts não entcontados', err));
 	}
 
-	getPostById(id: number): Promise<IPost> {
+	setPostsText(posts) {
+		return posts.map(post => {
+			post.text = post.text.toString();
+			return post
+		})
+	}
+
+	getPostById(id: number): Promise<any> {
 		return this.db.getById(this.table, id)
+			.then((post: IPost) => {
+				post.text = post.text.toString();
+				return post
+			}).catch(err => this.handlers.dbErrorHandler('Post não encontrado', err))
 	}
 
 	deletePost(id: number) {

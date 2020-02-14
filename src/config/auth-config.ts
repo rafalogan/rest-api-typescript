@@ -3,7 +3,7 @@ import {ExtractJwt, Strategy} from 'passport-jwt';
 
 import UserService from '../modules/user/user-service';
 
-const config = require('./config')();
+const config = require('./config.env')();
 
 class AuthConfig {
 

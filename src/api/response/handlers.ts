@@ -3,7 +3,7 @@ import httpStatus from 'http-status';
 import bcrypt from 'bcrypt';
 import jwt from 'jwt-simple';
 
-const config = require('../../config/config')();
+const config = require('../../config/config.env')();
 
 class Handlers {
 

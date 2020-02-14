@@ -1,15 +1,12 @@
 // Update with your config settings.
 require('ts-node/register');
 
-const configDB = require('./config/config')();
+import ConfigEnv from './config/config.env';
+const config = ConfigEnv.env;
 
 module.exports = {
-	client: 'pg',
-	connection: {
-		database: configDB.db,
-		user: configDB.username,
-		password: configDB.password
-	},
+	client: config.client,
+	connection: config.connection,
 	pool: {
 		min: 2,
 		max: 10

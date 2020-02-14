@@ -38,7 +38,7 @@ class AuthorService {
 
 	getPostByAuthor(id: number) {
 		return this.db.instance('post')
-			.select().where( {authorId: id})
+			.select(['id', 'title', 'text']).where( {authorId: id})
 			.then(posts => {
 				posts = this.postService.setPostsText(posts);
 				return posts;

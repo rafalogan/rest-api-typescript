@@ -34,5 +34,5 @@ class configEnv {
 	}
 }
 
-export default new configEnv();
+export default new configEnv().env;
 

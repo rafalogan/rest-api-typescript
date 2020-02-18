@@ -1,6 +1,6 @@
 import {Application} from 'express';
 
-import AuthRouter from '../modules/auth/auth-router';
+import AuthRouter from '../modules/auth/auth.routes';
 import UserRoutes from '../modules/user/user-routes';
 import AuthorRoutes from '../modules/author/author-routes';
 import PostRoutes from '../modules/posts/post-routes';

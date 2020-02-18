@@ -1,6 +1,6 @@
 import Db from '../../config/db/db';
 import {IAuthorDetail} from './author-interface';
-import Handlers from '../../api/response/handlers';
+import Handlers from '../../handlers/response-handlers';
 import PostService from '../posts/post-service';
 
 class AuthorService {

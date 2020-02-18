@@ -1,7 +1,7 @@
 import Db from '../../config/db/db';
 import {IPost} from './post-interface';
 import {IAuthor} from '../author/author-interface';
-import Handlers from '../../api/response/handlers';
+import Handlers from '../../handlers/response-handlers';
 
 class PostService {
 	private table: string = 'post';

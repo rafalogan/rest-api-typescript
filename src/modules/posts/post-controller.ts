@@ -1,7 +1,7 @@
 import {Request, Response} from 'express';
 
 import PostService from './post-service';
-import Handlers from '../../api/response/handlers';
+import Handlers from '../../handlers/response-handlers';
 
 class PostController {
 	private limit = 10;

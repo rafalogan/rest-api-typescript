@@ -1,44 +1,33 @@
-import express from 'express';
 import http from 'http';
-import { Application } from 'express';
-import morgan from 'morgan';
-import * as bodyParser from 'body-parser';
 
-import Routes from '../routes/routes';
 import Db from '../config/db/db';
-import AuthConfig from '../config/auth-config';
-import Handlers from './response/handlers';
 import ConfigEnv from '../config/config.env'
+import {CoreModule} from '../core/core.module';
 
-class App {
+export class App {
 
-	public express: Application;
+	public express;
 
-	constructor(private config = ConfigEnv.env) {
-		this.express= express();
-		this.middleware()
-	}
-
-	middleware(): void {
-		this.express.use(morgan('dev'));
-		this.express.use(bodyParser.json());
-		this.express.use(Handlers.errrorHandlerApi);
-		this.db();
-		this.router(this.express, AuthConfig);
-	}
-
-	private router(app: Application, auth: any) {
-		 Routes.initRoutes(app, auth);
-	}
-
-	private db() {
-		 Db.getMigrateLatest();
+	constructor(private config = ConfigEnv,
+							private db = Db) {
+		if(this.db.getMigrateLatest()) {
+			this.express = new CoreModule().express;
+			this.upServer();
+		}
 	}
 
 	private upServer () {
 		http.createServer(this.express)
 			.listen(this.config.serverPort)
+			.on('listening', this.onServerUp.bind(this))
+			.on('error', this.onServerStatupError.bind(this))
+	}
+
+	private onServerUp() {
+		console.log('Servidor Online', `http://${this.config.serverHost}:${this.config.serverPort}`)
+	}
+
+	private  onServerStatupError(error: NodeJS.ErrnoException) {
+		console.error('Error', error);
 	}
 }
-
-export default new App().express;

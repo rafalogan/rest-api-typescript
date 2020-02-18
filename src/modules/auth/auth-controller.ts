@@ -1,26 +1,23 @@
 import {Request, Response} from 'express';
 
 import UserService from '../user/user-service';
-import Handlers from '../../api/response/handlers';
+import ResponseHandlers from '../../handlers/response-handlers';
 
 class AuthController {
 
 	constructor(private userService = UserService,
-							private handlers = Handlers) {}
+							private responseHandlers = ResponseHandlers) {}
 
-	authentication(req: Request, res: Response)  {
-		console.log(req.body);
-		const credentials = {
-			email: req.body.email,
-			password: req.body.password
-		};
+	async authentication(req: Request, res: Response)  {
+		const {email, password} = req.body;
 
-		if (credentials.email && credentials.password) this.userService.getByEmail(credentials.email)
-			.then(user => this.handlers.authSucess(res, credentials, user))
-			.catch(error => {
-				console.error('Error A autenticação', error);
-				this.handlers.authFaill(req, res)
-			})
+		console.log(email, password);
+		// if (email && password) try {
+		// 	const user = await this.userService.getByEmail(email);
+		// 	this.responseHandlers.authSucess(res, {email, password}, user)
+		// }catch (err) {
+		// 	this.responseHandlers.authFaill(req, res)
+		// }
 	}
 }
 

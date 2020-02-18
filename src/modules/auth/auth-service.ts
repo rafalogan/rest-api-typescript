@@ -1,12 +1,10 @@
-import passport from 'passport';
 import {ExtractJwt, Strategy} from 'passport-jwt';
+import passport from 'passport';
 
-import UserService from '../modules/user/user-service';
+import UserService from '../user/user-service';
+import Config from '../../config/config.env';
 
-import Config from './config.env';
-
-
-class AuthConfig {
+class AuthService {
 
 	private params;
 
@@ -32,7 +30,6 @@ class AuthConfig {
 			authenticate: () => passport.authenticate('jwt', { session: false})
 		}
 	}
-
 }
 
-export default new AuthConfig();
+export default new AuthService();

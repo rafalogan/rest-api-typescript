@@ -1,7 +1,7 @@
 import {Request, Response} from 'express';
 
 import AuthorService from './author-service'
-import Handlers from '../../api/response/handlers';
+import Handlers from '../../handlers/response-handlers';
 
 class AuthorController {
 	private limit = 10;

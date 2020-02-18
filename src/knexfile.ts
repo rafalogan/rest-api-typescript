@@ -2,11 +2,10 @@
 require('ts-node/register');
 
 import ConfigEnv from './config/config.env';
-const config = ConfigEnv.env;
 
 module.exports = {
-	client: config.client,
-	connection: config.connection,
+	client: ConfigEnv.client,
+	connection: ConfigEnv.connection,
 	pool: {
 		min: 2,
 		max: 10

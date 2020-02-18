@@ -2,15 +2,14 @@ import {Request, Response} from 'express';
 
 import AuthController from './auth-controller';
 
-class AuthRouter {
+class AuthRoutes{
 
 	constructor() {}
 
-	signin(req: Request, res: Response) {
+	async signin(req: Request, res: Response) {
 		return AuthController.authentication(req, res)
 	}
 
-
 }
 
-export default new AuthRouter;
+export default new AuthRoutes;

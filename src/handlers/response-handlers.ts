@@ -3,9 +3,10 @@ import httpStatus from 'http-status';
 import bcrypt from 'bcrypt';
 import jwt from 'jwt-simple';
 
-const config = require('../../config/config.env')();
+import Config from '../config/config.env';
 
-class Handlers {
+
+class ResponseHandlers {
 
 	errrorHandlerApi(err: ErrorRequestHandler, req: Request,
 									 res: Response, next: NextFunction) {
@@ -47,7 +48,7 @@ class Handlers {
 
 			res.status(httpStatus.OK).json({
 				...payload,
-				token: jwt.encode(payload, config.authSecret)
+				token: jwt.encode(payload, Config.authSecret)
 			})
 		}
 	}
@@ -65,4 +66,4 @@ class Handlers {
 
 }
 
-export default new Handlers();
+export default new ResponseHandlers();

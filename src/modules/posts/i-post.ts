@@ -1,4 +1,4 @@
-import {IAuthor} from '../author/author-interface';
+import {IAuthor} from '../author/i-author';
 
 export interface IPost {
 	id: number;

@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 
-import AuthorService from './author-service'
+import AuthorService from './author.service'
 import Handlers from '../../handlers/response-handlers';
 
 class AuthorController {

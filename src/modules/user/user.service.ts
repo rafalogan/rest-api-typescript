@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt'
 
-import {IUser, IUserDetail} from './user-interface';
+import {IUser, IUserDetail} from './i-user';
 import Db from '../../config/db/db';
 
 class UserService implements IUser {

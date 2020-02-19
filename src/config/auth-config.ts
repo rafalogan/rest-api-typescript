@@ -1,7 +1,7 @@
 import passport from 'passport';
 import {ExtractJwt, Strategy} from 'passport-jwt';
 
-import UserService from '../modules/user/user-service';
+import UserService from '../modules/user/user.service';
 
 import Config from './config.env';
 

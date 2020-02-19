@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 
-import UserService from '../user/user-service';
+import UserService from '../user/user.service';
 import ResponseHandlers from '../../handlers/response-handlers';
 
 class AuthController {

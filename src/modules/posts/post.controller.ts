@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 
-import PostService from './post-service';
+import PostService from './post.service';
 import Handlers from '../../handlers/response-handlers';
 
 class PostController {

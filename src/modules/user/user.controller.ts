@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 
-import UserService from './user-service';
+import UserService from './user.service';
 import Handlers from '../../handlers/response-handlers';
 
 

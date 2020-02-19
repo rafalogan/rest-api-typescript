@@ -1,6 +1,6 @@
 import Db from '../../config/db/db';
-import {IPost} from './post-interface';
-import {IAuthor} from '../author/author-interface';
+import {IPost} from './i-post';
+import {IAuthor} from '../author/i-author';
 import Handlers from '../../handlers/response-handlers';
 
 class PostService {

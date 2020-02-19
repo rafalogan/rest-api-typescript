@@ -12,12 +12,12 @@ class AuthController {
 		const {email, password} = req.body;
 
 		console.log(email, password);
-		// if (email && password) try {
-		// 	const user = await this.userService.getByEmail(email);
-		// 	this.responseHandlers.authSucess(res, {email, password}, user)
-		// }catch (err) {
-		// 	this.responseHandlers.authFaill(req, res)
-		// }
+		if (email && password) try {
+			const user = await this.userService.getByEmail(email);
+			this.responseHandlers.authSucess(res, {email, password}, user)
+		}catch (err) {
+			this.responseHandlers.authFaill(req, res)
+		}
 	}
 }
 

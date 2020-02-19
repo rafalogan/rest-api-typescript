@@ -1,21 +1,23 @@
 import {Application} from 'express';
 
-import AuthRouter from '../modules/auth/auth.routes';
+
 import UserRoutes from '../modules/user/user-routes';
 import AuthorRoutes from '../modules/author/author-routes';
 import PostRoutes from '../modules/posts/post-routes';
+import AuthRoutes from '../modules/auth/auth.routes';
 
 class Routes {
-	private token = AuthRouter;
+	private auth: AuthRoutes;
 	private user =  UserRoutes;
 	private author = AuthorRoutes;
 	private posts = PostRoutes;
 
-	constructor() {}
+	constructor(app: Application, auth: any) {
+		this.auth = new AuthRoutes(app);
+		this.initRoutes(app, auth);
+	}
 
 	initRoutes(app: Application, auth: any): void {
-		// Rotas Auth
-		app.route('/signin').post(this.token.signin);
 
 		// Rotas de Usuários
 		app.route('/users')
@@ -51,4 +53,4 @@ class Routes {
 	}
 }
 
-export default new Routes();
+export default Routes;
